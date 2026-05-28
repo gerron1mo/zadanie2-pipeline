@@ -6,7 +6,7 @@ WORKDIR /app
 # kopia potrzebnych plikow do instalacji zaleznosci (docker cache'uje warstwe instalacji zaleznosci)
 COPY package*.json ./
 # npm ci szybszy od npm install; only production pomija devDependencies
-RUN npm ci --only=production
+RUN npm ci
 
 # kopia reszty kodu po instalacji zaleznosci, aby nie popsuc cache'a przy zmianie kodu
 COPY . .
